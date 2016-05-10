@@ -6,4 +6,5 @@ authors = ["Dov Reshef <reshef.dov@gmail.com>"]
 [dependencies]
 rand = "*"
 image = "*"
-
+rustc-serialize = "*"
+regex = "*"

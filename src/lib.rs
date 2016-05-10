@@ -1,5 +1,7 @@
 extern crate rand;
 extern crate image;
+extern crate rustc_serialize;
+extern crate regex;
 
 mod grid;
 mod algorithms;
