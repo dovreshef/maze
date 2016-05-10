@@ -1,8 +1,8 @@
 extern crate rand;
 extern crate image;
 
-mod maze;
-mod algorithms;
-mod render;
+pub mod maze;
+pub mod algorithms;
+pub mod render;
 #[cfg(test)]
 mod tests;
