@@ -1,5 +1,5 @@
 use rand::Rng;
-use maze::{Direction, Grid};
+use grid::{Direction, Grid};
 
 struct Sets {
     width: usize,

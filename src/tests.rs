@@ -1,4 +1,4 @@
-use maze::Maze;
+use super::Maze;
 use algorithms::{Algorithm, CellSelection, Bias, Scan};
 
 const WIDTH: usize = 100;

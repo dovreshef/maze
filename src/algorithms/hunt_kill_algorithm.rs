@@ -1,5 +1,5 @@
 use rand::Rng;
-use maze::{Direction, Grid};
+use grid::{Direction, Grid};
 use super::open_random_dir;
 
 // Based on http://weblog.jamisbuck.org/2011/1/24/maze-generation-hunt-and-kill-algorithm

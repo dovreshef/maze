@@ -1,5 +1,5 @@
 use rand::Rng;
-use maze::Grid;
+use grid::Grid;
 use super::{CellSelection, open_random_dir};
 
 // Based on http://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-algorithm

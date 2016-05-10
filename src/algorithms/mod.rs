@@ -1,5 +1,5 @@
 use rand::{self, Rng};
-use maze::{Direction, Grid};
+use grid::{Direction, Grid};
 
 #[derive(Clone, Copy, Debug)]
 pub enum Algorithm {
@@ -39,7 +39,7 @@ pub enum Scan {
 }
 
 
-pub fn carve_grid(width: usize, height: usize, algorithm: Algorithm) -> Grid {
+pub fn generate_grid(width: usize, height: usize, algorithm: Algorithm) -> Grid {
     let mut rng = rand::thread_rng();
     let mut grid = match algorithm {
         Algorithm::BinaryTree(bias)            => binary_tree::run(width, height, &mut rng, bias),

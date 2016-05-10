@@ -4,7 +4,7 @@ use std::path::Path;
 use std::fs::File;
 use std::io::{Error, ErrorKind};
 use std::io;
-use maze::{Cell, Grid, Direction};
+use grid::{Cell, Grid, Direction};
 
 const BASE_STROKE_WIDTH: u32 = 3;
 const BASE_CELL_LENGTH: u32 = 15;

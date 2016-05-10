@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 use rand::Rng;
-use maze::{Direction, Grid};
+use grid::{Direction, Grid};
 
 type Set = HashSet<(usize, usize)>;
 

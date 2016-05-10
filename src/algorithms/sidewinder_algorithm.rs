@@ -1,5 +1,5 @@
 use rand::Rng;
-use maze::{Direction, Grid};
+use grid::{Direction, Grid};
 use super::Scan;
 
 // Based on http://weblog.jamisbuck.org/2011/2/3/maze-generation-sidewinder-algorithm

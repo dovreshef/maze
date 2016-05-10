@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use rand::Rng;
-use maze::{Direction, Grid};
+use grid::{Direction, Grid};
 use super::Scan;
 
 struct EllersHelper {

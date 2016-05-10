@@ -1,5 +1,5 @@
 use rand::Rng;
-use maze::Grid;
+use grid::Grid;
 use super::open_random_dir;
 
 // Based on http://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking
