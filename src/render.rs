@@ -1,9 +1,10 @@
-use image::{self, GenericImage, DynamicImage, ImageBuffer};
+use image::{self, DynamicImage, ImageBuffer};
 use image::imageops::FilterType;
 use std::path::Path;
 use std::fs::File;
 use std::io::{Error, ErrorKind};
 use std::io;
+use std::f32::EPSILON;
 use grid::{Cell, Grid, Direction};
 
 const BASE_STROKE_WIDTH: u32 = 3;
@@ -62,12 +63,12 @@ impl MazeRender {
                 let mut border = false;
                 // we treat the case where we hit the last wall of the maze
                 if x_idx == self.width as usize {
-                    x_idx = x_idx - 1;
+                    x_idx -= 1;
                     x_dir = Direction::East;
                     border = true;
                 }
                 if y_idx == self.height as usize {
-                    y_idx = y_idx - 1;
+                    y_idx -= 1;
                     y_dir = Direction::South;
                     border = true;
                 }
@@ -84,7 +85,7 @@ impl MazeRender {
             *pixel = value;           
         }
         let mut img = DynamicImage::ImageLuma8(imgbuf);
-        if self.scale != 1.0 {
+        if (self.scale - 1.0).abs() > EPSILON {
             let new_width = (img_width as f32 * self.scale) as u32;
             let new_height = (img_height as f32 * self.scale) as u32;
             img = img.resize_exact(new_width, new_height, FilterType::Lanczos3);

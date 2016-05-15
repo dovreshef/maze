@@ -29,12 +29,10 @@ pub fn run<R: Rng>(width: usize, height: usize, rng: &mut R) -> Grid {
     grid
 }
 
-
 fn choose<R: Rng>(set: &mut Set, rng: &mut R) -> (usize, usize) {
     let idx = rng.gen_range(0, set.len());
     *set.iter().nth(idx).unwrap()
 }
-
 
 fn connect<R: Rng>(grid: &mut Grid, frontier: &mut Set, rng: &mut R, done: &mut Set, x: usize, y: usize) {
     let mut connected = false;

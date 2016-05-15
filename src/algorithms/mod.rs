@@ -88,7 +88,6 @@ fn open_random_dir<R: Rng>(grid: &mut Grid, x: usize, y: usize, rng: &mut R) -> 
     result
 } 
 
-mod decode;
 mod binary_tree;
 mod ellers_algorithm;
 mod recursive_backtracking;

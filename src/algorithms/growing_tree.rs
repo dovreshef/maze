@@ -36,14 +36,13 @@ pub fn run<R: Rng>(width: usize, height: usize, rng: &mut R, selection_method: C
     grid
 }
 
-
 fn choose_cell<R: Rng>(cells: &[(usize, usize)], selection_method: CellSelection, rng: &mut R) 
     -> (usize, usize, usize) {
     let np = cells.len() - 1;                           // newest
     let (nx, ny) = cells[np];
     let op = 0;                                         // oldest
     let (ox, oy) = cells[op];
-    let rp = rng.gen_range(0, cells.len());            // random
+    let rp = rng.gen_range(0, cells.len());             // random
     let (rx, ry) = cells[rp];
     let weight = rng.gen_range(1, 101);
     match selection_method {

@@ -26,7 +26,6 @@ pub fn run<R: Rng>(width: usize, height: usize, rng: &mut R) -> Grid {
     grid
 }
 
-
 fn hunt<R: Rng>(grid: &mut Grid, rng: &mut R) -> Option<(usize, usize)> {
     // Run over the maze, finds any unvisited cell with visited neighbours
     let mut result = None;
