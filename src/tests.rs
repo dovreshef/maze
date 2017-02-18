@@ -20,7 +20,7 @@ fn create_fail_height() {
 #[test]
 fn create_recursive_backtracking() {
     let _ = Maze::new(WIDTH, HEIGHT)
-        .generate(Algorithm::RecursiveBacktracking)
+        .algorithm(Algorithm::RecursiveBacktracking)
         .render(RENDER_SCALE);
 }
 
@@ -29,7 +29,7 @@ fn create_ellers_algorithm() {
     let scan_dirs = [Scan::Horizontal, Scan::Vertical];
     for &scan in scan_dirs.iter() {
         let _ = Maze::new(WIDTH, HEIGHT)
-            .generate(Algorithm::EllersAlgorithm(scan))
+            .algorithm(Algorithm::EllersAlgorithm(scan))
             .render(RENDER_SCALE);
     }
 }
@@ -37,21 +37,21 @@ fn create_ellers_algorithm() {
 #[test]
 fn create_kruskals_algorithm() {
     let _ = Maze::new(WIDTH, HEIGHT)
-        .generate(Algorithm::KruskalsAlgorithm)
+        .algorithm(Algorithm::KruskalsAlgorithm)
         .render(RENDER_SCALE);
 }
 
 #[test]
 fn create_prims_algorithm() {
     let _ = Maze::new(WIDTH, HEIGHT)
-        .generate(Algorithm::PrimsAlgorithm)
+        .algorithm(Algorithm::PrimsAlgorithm)
         .render(RENDER_SCALE);
 }
 
 #[test]
 fn create_recursive_division() {
     let _ = Maze::new(WIDTH, HEIGHT)
-        .generate(Algorithm::RecursiveDivision)
+        .algorithm(Algorithm::RecursiveDivision)
         .render(RENDER_SCALE);
 }
 
@@ -65,7 +65,7 @@ fn create_growing_tree() {
         CellSelection::OldestRandom(50)];
     for &selection in selections.iter() {
         let _ = Maze::new(WIDTH, HEIGHT)
-            .generate(Algorithm::GrowingTree(selection))
+            .algorithm(Algorithm::GrowingTree(selection))
             .render(RENDER_SCALE);
     }
 }
@@ -78,7 +78,7 @@ fn create_binary_tree() {
         Bias::Southwest];
     for &bias in biases.iter() {
         let _ = Maze::new(WIDTH, HEIGHT)
-            .generate(Algorithm::BinaryTree(bias))
+            .algorithm(Algorithm::BinaryTree(bias))
             .render(RENDER_SCALE);
     }
 }
@@ -88,7 +88,7 @@ fn create_sidewinder_algorithm() {
     let scan_dirs = [Scan::Horizontal, Scan::Vertical];
     for &scan in scan_dirs.iter() {
         let _ = Maze::new(WIDTH, HEIGHT)
-            .generate(Algorithm::SidewinderAlgorithm(scan))
+            .algorithm(Algorithm::SidewinderAlgorithm(scan))
             .render(RENDER_SCALE);
     }    
 }
@@ -96,6 +96,6 @@ fn create_sidewinder_algorithm() {
 #[test]
 fn create_hunt_kill_algorithm() {
     let _ = Maze::new(WIDTH, HEIGHT)
-        .generate(Algorithm::HuntKillAlgorithm)
+        .algorithm(Algorithm::HuntKillAlgorithm)
         .render(RENDER_SCALE);
 }

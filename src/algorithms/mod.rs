@@ -1,4 +1,4 @@
-use rand::{self, Rng};
+use rand::Rng;
 use grid::{Direction, Grid};
 
 #[derive(Clone, Copy, Debug)]
@@ -38,25 +38,7 @@ pub enum Scan {
     Vertical
 }
 
-
-pub fn generate_grid(width: usize, height: usize, algorithm: Algorithm) -> Grid {
-    let mut rng = rand::thread_rng();
-    let mut grid = match algorithm {
-        Algorithm::BinaryTree(bias)            => binary_tree::run(width, height, &mut rng, bias),
-        Algorithm::EllersAlgorithm(scan)       => ellers_algorithm::run(width, height, &mut rng, scan),
-        Algorithm::RecursiveBacktracking       => recursive_backtracking::run(width, height, &mut rng),
-        Algorithm::HuntKillAlgorithm           => hunt_kill_algorithm::run(width, height, &mut rng),
-        Algorithm::PrimsAlgorithm              => prims_algorithm::run(width, height, &mut rng),
-        Algorithm::GrowingTree(cell_selection) => growing_tree::run(width, height, &mut rng, cell_selection),
-        Algorithm::SidewinderAlgorithm(scan)   => sidewinder_algorithm::run(width, height, &mut rng, scan),
-        Algorithm::KruskalsAlgorithm           => kruskals_algorithm::run(width, height, &mut rng),
-        Algorithm::RecursiveDivision           => recursive_division::run(width, height, &mut rng)
-    };
-    choose_entry_points(&mut grid, &mut rng);
-    grid
-}
-
-fn choose_entry_points<R: Rng>(grid: &mut Grid, rng: &mut R) {
+pub fn choose_entry_points<R: Rng>(grid: &mut Grid, rng: &mut R) {
     let mut directions = [Direction::North, Direction::South, Direction::East, Direction::West];
     rng.shuffle(&mut directions);
     for &dir in directions.iter().take(2) {
@@ -88,12 +70,12 @@ fn open_random_dir<R: Rng>(grid: &mut Grid, x: usize, y: usize, rng: &mut R) -> 
     result
 } 
 
-mod binary_tree;
-mod ellers_algorithm;
-mod recursive_backtracking;
-mod hunt_kill_algorithm;
-mod prims_algorithm;
-mod growing_tree;
-mod sidewinder_algorithm;
-mod kruskals_algorithm;
-mod recursive_division;
+pub mod binary_tree;
+pub mod ellers_algorithm;
+pub mod recursive_backtracking;
+pub mod hunt_kill_algorithm;
+pub mod prims_algorithm;
+pub mod growing_tree;
+pub mod sidewinder_algorithm;
+pub mod kruskals_algorithm;
+pub mod recursive_division;
